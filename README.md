@@ -1,1 +1,3 @@
-# hc-private-lab
+# WatServ Azure Template 
+# New Customer Subnet
+
