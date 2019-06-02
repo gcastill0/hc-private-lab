@@ -6,14 +6,16 @@ provider "azurerm" {
 
 # Create a resource group
 resource "azurerm_resource_group" "test" {
-  name     = "production"
-  location = "West US"
+  name     = "${var.resource-group-name}"
+  location = "${var.location}"
+  tags     = "${var.tags}"
 }
 
 # Create a virtual network within the resource group
 resource "azurerm_virtual_network" "test" {
-  name                = "production-network"
+  name                = "${vnet-name}"
   resource_group_name = "${azurerm_resource_group.test.name}"
   location            = "${azurerm_resource_group.test.location}"
   address_space       = ["10.0.0.0/16"]
+  tags                = "${var.tags}"
 }
