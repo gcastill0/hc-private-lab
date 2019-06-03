@@ -1,21 +1,6 @@
-variable "company-name" {
-  description = "Official name for our client"
-  default     = "Norbord"
-}
-
-variable "environment" {
-  description = "Target environment for our client"
-  default     = "Dev\\Test"
-}
-
-variable "subscription-name" {
-  description = "(Optional) Specifies the ID of the subscription. Used for tagging."
-  default     = "Norbord Azure"
-}
-
-variable "resource-group-name" {
-  description = "(Required) The name of the resource group. Must be unique on your Azure subscription."
-  default     = "RG-CCA-NB"
+variable "postfix" {
+  description = "Common name postfix for the environment"
+  default     = "CCA-NB"
 }
 
 variable "location" {
@@ -23,18 +8,28 @@ variable "location" {
   default     = "canadacentral"
 }
 
-variable "vnet-name" {
-  description = "(Required) Specifies the name of the Virtual Network."
-  default     = "VNET-CCA-NB"
+variable "gwsubname" {
+  description = "A user-defined name of the IP configuration."
+  default     = "GatewaySubnet"
+}
+
+variable "loggingstorageaccount" {
+  description = "(Required) Specifies the name of the Storage Account"
+  default     = "gcnbdiaglogs"
+}
+
+variable "sqlbckstorageaccount" {
+  description = "(Required) Specifies the name of the Storage Account"
+  default     = "gcnbsqlbck"
 }
 
 variable "tags" {
   type = "map"
 
   default = {
-    Subscription = "${var.subscription-name}"
-    Environment  = "${var.environment}"
-    Owner        = "${var.company-name}"
+    Subscription = "Norbord Azure"
+    Environment  = "Dev\\Test"
+    Owner        = "Norbord"
   }
 
   description = "Basic tags"
