@@ -159,11 +159,3 @@ resource "azurerm_storage_account" "sql_backups" {
   account_replication_type = "GRS"
   tags                     = "${var.tags}"
 }
-
-output azure_resource_name_baseline {
-  value = azurerm_resource_group.test.name
-}
-
-output azure_resource_name_location {
-  value = azurerm_resource_group.test.location
-}
