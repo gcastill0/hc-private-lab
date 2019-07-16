@@ -161,6 +161,9 @@ resource "azurerm_storage_account" "sql_backups" {
 }
 
 output azure_resource_name_baseline {
-  azurerm_resource_group.test.name
-  azurerm_resource_group.test.location
+  value = azurerm_resource_group.test.name
+}
+
+output azure_resource_name_location {
+  value = azurerm_resource_group.test.location
 }
