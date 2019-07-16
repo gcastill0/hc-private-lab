@@ -28,38 +28,38 @@ resource "azurerm_subnet" "test" {
   network_security_group_id = "${azurerm_network_security_group.test.id}"
 }
 
-resource "azurerm_subnet" "gateway" {
-  name                      = "${var.gwsubname}"
-  resource_group_name       = "${azurerm_resource_group.test.name}"
-  virtual_network_name      = "${azurerm_virtual_network.test.name}"
-  address_prefix            = "10.7.11.240/28"
-  network_security_group_id = "${azurerm_network_security_group.test.id}"
-}
-
-resource "azurerm_public_ip" "gateway" {
-  name                = "${var.gwsubname}"
-  location            = "${var.location}"
-  resource_group_name = "${azurerm_resource_group.test.name}"
-  allocation_method   = "Dynamic"
-  tags                = "${var.tags}"
-}
-
-resource "azurerm_virtual_network_gateway" "gateway" {
-  name                = "VNG-${var.postfix}"
-  location            = "${var.location}"
-  resource_group_name = "${azurerm_resource_group.test.name}"
-  type                = "vpn"
-  vpn_type            = "RouteBased"
-  sku                 = "Basic"
-
-  ip_configuration {
-    name                 = "${azurerm_subnet.gateway.name}"
-    subnet_id            = "${azurerm_subnet.gateway.id}"
-    public_ip_address_id = "${azurerm_public_ip.gateway.id}"
-  }
-
-  tags = "${var.tags}"
-}
+# resource "azurerm_subnet" "gateway" {
+#   name                      = "${var.gwsubname}"
+#   resource_group_name       = "${azurerm_resource_group.test.name}"
+#   virtual_network_name      = "${azurerm_virtual_network.test.name}"
+#   address_prefix            = "10.7.11.240/28"
+#   network_security_group_id = "${azurerm_network_security_group.test.id}"
+# }
+#
+# resource "azurerm_public_ip" "gateway" {
+#   name                = "${var.gwsubname}"
+#   location            = "${var.location}"
+#   resource_group_name = "${azurerm_resource_group.test.name}"
+#   allocation_method   = "Dynamic"
+#   tags                = "${var.tags}"
+# }
+#
+# resource "azurerm_virtual_network_gateway" "gateway" {
+#   name                = "VNG-${var.postfix}"
+#   location            = "${var.location}"
+#   resource_group_name = "${azurerm_resource_group.test.name}"
+#   type                = "vpn"
+#   vpn_type            = "RouteBased"
+#   sku                 = "Basic"
+#
+#   ip_configuration {
+#     name                 = "${azurerm_subnet.gateway.name}"
+#     subnet_id            = "${azurerm_subnet.gateway.id}"
+#     public_ip_address_id = "${azurerm_public_ip.gateway.id}"
+#   }
+#
+#   tags = "${var.tags}"
+# }
 
 resource "azurerm_network_security_group" "test" {
   name                = "NSG-${var.postfix}"
