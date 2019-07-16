@@ -1,7 +1,11 @@
-output "azure_resource_name_baseline" {
+output "azure_resource_group_name" {
   value = "${azurerm_resource_group.test.name}"
 }
 
-output "azure_resource_name_location" {
+output "azure_resource_group_location" {
   value = "${azurerm_resource_group.test.location}"
+}
+
+output "azurerm_subnet_internal_id" {
+  value = "${azurerm_subnet.test.id}"
 }
