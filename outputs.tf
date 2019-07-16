@@ -9,3 +9,7 @@ output "azure_resource_group_location" {
 output "azurerm_subnet_internal_id" {
   value = "${azurerm_subnet.test.id}"
 }
+
+output "postfix" {
+  value = "${var.postfix}"
+}
