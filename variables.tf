@@ -29,7 +29,10 @@ variable "tags" {
   default = {
     Subscription = "Norbord Azure"
     Environment  = "Dev\\Test"
-    Owner        = "Norbord"
+    Owner        = "Gilberto Castillo"
+    Purpose      = "POC Test"
+    Email        = "gilberto@hashicorp.com"
+    Phone        = "1-416-543-7918"
   }
 
   description = "Basic tags"
