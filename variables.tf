@@ -32,7 +32,7 @@ variable "tags" {
     Owner        = "Gilberto Castillo"
     Purpose      = "POC Test"
     Email        = "gilberto@hashicorp.com"
-    Phone        = "1-416-543-7918"
+    Phone        = "416-543-7918"
   }
 
   description = "Basic tags"
