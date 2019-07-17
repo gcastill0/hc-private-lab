@@ -114,7 +114,7 @@ resource "azurerm_network_security_rule" "rule3" {
 }
 
 resource "azurerm_recovery_services_vault" "test" {
-  name                = "ARSV-${var.postfix}"
+  name                = "RSV-${var.postfix}"
   resource_group_name = "${azurerm_resource_group.test.name}"
   location            = "${azurerm_resource_group.test.location}"
   sku                 = "Standard"
