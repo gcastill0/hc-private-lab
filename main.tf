@@ -21,10 +21,16 @@ resource "azurerm_virtual_network" "test" {
 }
 
 resource "azurerm_subnet" "test" {
-  name                      = "SN-${var.postfix}"
-  resource_group_name       = "${azurerm_resource_group.test.name}"
-  virtual_network_name      = "${azurerm_virtual_network.test.name}"
-  address_prefix            = "10.7.11.0/25"
+  name                 = "SN-${var.postfix}"
+  resource_group_name  = "${azurerm_resource_group.test.name}"
+  virtual_network_name = "${azurerm_virtual_network.test.name}"
+  address_prefix       = "10.7.11.0/25"
+
+  #  network_security_group_id = "${azurerm_network_security_group.test.id}"
+}
+
+resource "azurerm_subnet_network_security_group_association" "test" {
+  subnet_id                 = "${azurerm_subnet.test.id}"
   network_security_group_id = "${azurerm_network_security_group.test.id}"
 }
 
@@ -114,7 +120,7 @@ resource "azurerm_network_security_rule" "rule3" {
 }
 
 resource "azurerm_recovery_services_vault" "test" {
-  name                = "RSV-${var.postfix}"
+  name                = "BRSV-${var.postfix}"
   resource_group_name = "${azurerm_resource_group.test.name}"
   location            = "${azurerm_resource_group.test.location}"
   sku                 = "Standard"
