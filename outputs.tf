@@ -7,7 +7,7 @@ output "azure_resource_group_location" {
 }
 
 output "azurerm_network_security_group" {
-  value = "${azurerm_resource_group.test.name}"
+  value = "${azurerm_network_security_group.test.name}"
 }
 
 output "azurerm_subnet_internal_id" {
