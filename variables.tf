@@ -27,7 +27,7 @@ variable "tags" {
   type = "map"
 
   default = {
-    Subscription = "Norbord Azure"
+    Subscription = "Customer in Azure"
     Environment  = "Dev\\Test"
     Owner        = "Gilberto Castillo"
     Purpose      = "POC Test"
