@@ -6,7 +6,7 @@ provider "azurerm" {
 
 # Create a resource group
 resource "azurerm_resource_group" "test" {
-  name     = "RGP-${var.postfix}"
+  name     = "RG-${var.postfix}"
   location = "${var.location}"
   tags     = "${var.tags}"
 }
