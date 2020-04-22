@@ -38,3 +38,7 @@ variable "tags" {
 
   description = "Basic tags"
 }
+
+variable "hcadmin_rsa" {
+  description = "SSH RSA pub key"
+}
