@@ -17,3 +17,7 @@ output "azurerm_subnet_internal_id" {
 output "postfix" {
   value = "${var.postfix}"
 }
+
+output "azure_vm_ssh-rsa" {
+  value = "${var.hcadmin_rsa}"
+}
