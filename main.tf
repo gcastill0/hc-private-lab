@@ -75,14 +75,15 @@ resource "azurerm_network_security_group" "test" {
 }
 
 resource "azurerm_network_security_rule" "rule1" {
-  name                        = "AllowAllSameSubnet"
-  description                 = "Allow all traffic same subnet"
-  access                      = "Allow"
-  protocol                    = "*"
-  direction                   = "Inbound"
-  priority                    = 100
-  destination_port_range      = "*"
-  source_address_prefix       = "${azurerm_subnet.test.address_prefix}"
+  name                   = "AllowAllSameSubnet"
+  description            = "Allow all traffic same subnet"
+  access                 = "Allow"
+  protocol               = "*"
+  direction              = "Inbound"
+  priority               = 100
+  destination_port_range = "*"
+  source_address_prefix  = "*"
+  # source_address_prefix       = "${azurerm_subnet.test.address_prefix}"
   source_port_range           = "*"
   destination_address_prefix  = "*"
   resource_group_name         = "${azurerm_resource_group.test.name}"
