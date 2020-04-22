@@ -1,6 +1,6 @@
 variable "postfix" {
   description = "Common name postfix for the environment"
-  default     = "CCA-NB"
+  default     = "INTERRUPT"
 }
 
 variable "location" {
@@ -33,6 +33,7 @@ variable "tags" {
     Purpose      = "POC Test"
     Email        = "gilberto@hashicorp.com"
     Phone        = "416-543-7918"
+    DoNotDelete  = "True"
   }
 
   description = "Basic tags"

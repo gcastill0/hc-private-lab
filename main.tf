@@ -119,49 +119,49 @@ resource "azurerm_network_security_rule" "rule3" {
   network_security_group_name = "${azurerm_network_security_group.test.name}"
 }
 
-resource "azurerm_recovery_services_vault" "test" {
-  name                = "C-RSV-${var.postfix}"
-  resource_group_name = "${azurerm_resource_group.test.name}"
-  location            = "${azurerm_resource_group.test.location}"
-  sku                 = "Standard"
-  tags                = "${var.tags}"
-}
-
-resource "azurerm_recovery_services_protection_policy_vm" "test" {
-  name                = "NBVMDaily"
-  resource_group_name = "${azurerm_resource_group.test.name}"
-  recovery_vault_name = "${azurerm_recovery_services_vault.test.name}"
-
-  timezone = "UTC"
-
-  backup {
-    frequency = "Daily"
-    time      = "23:00"
-  }
-
-  retention_daily {
-    count = 14
-  }
-
-  tags = "${var.tags}"
-}
-
-resource "azurerm_storage_account" "logs" {
-  name                     = "${var.loggingstorageaccount}"
-  location                 = "${azurerm_resource_group.test.location}"
-  resource_group_name      = "${azurerm_resource_group.test.name}"
-  account_kind             = "Storage"
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
-  tags                     = "${var.tags}"
-}
-
-resource "azurerm_storage_account" "sql_backups" {
-  name                     = "${var.sqlbckstorageaccount}"
-  location                 = "${azurerm_resource_group.test.location}"
-  resource_group_name      = "${azurerm_resource_group.test.name}"
-  account_kind             = "Storage"
-  account_tier             = "Standard"
-  account_replication_type = "GRS"
-  tags                     = "${var.tags}"
-}
+# resource "azurerm_recovery_services_vault" "test" {
+#   name                = "C-RSV-${var.postfix}"
+#   resource_group_name = "${azurerm_resource_group.test.name}"
+#   location            = "${azurerm_resource_group.test.location}"
+#   sku                 = "Standard"
+#   tags                = "${var.tags}"
+# }
+#
+# resource "azurerm_recovery_services_protection_policy_vm" "test" {
+#   name                = "NBVMDaily"
+#   resource_group_name = "${azurerm_resource_group.test.name}"
+#   recovery_vault_name = "${azurerm_recovery_services_vault.test.name}"
+#
+#   timezone = "UTC"
+#
+#   backup {
+#     frequency = "Daily"
+#     time      = "23:00"
+#   }
+#
+#   retention_daily {
+#     count = 14
+#   }
+#
+#   tags = "${var.tags}"
+# }
+#
+# resource "azurerm_storage_account" "logs" {
+#   name                     = "${var.loggingstorageaccount}"
+#   location                 = "${azurerm_resource_group.test.location}"
+#   resource_group_name      = "${azurerm_resource_group.test.name}"
+#   account_kind             = "Storage"
+#   account_tier             = "Standard"
+#   account_replication_type = "LRS"
+#   tags                     = "${var.tags}"
+# }
+#
+# resource "azurerm_storage_account" "sql_backups" {
+#   name                     = "${var.sqlbckstorageaccount}"
+#   location                 = "${azurerm_resource_group.test.location}"
+#   resource_group_name      = "${azurerm_resource_group.test.name}"
+#   account_kind             = "Storage"
+#   account_tier             = "Standard"
+#   account_replication_type = "GRS"
+#   tags                     = "${var.tags}"
+# }
