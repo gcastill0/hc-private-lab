@@ -104,14 +104,14 @@ resource "azurerm_network_security_rule" "rule2" {
   network_security_group_name = "${azurerm_network_security_group.test.name}"
 }
 
-resource "azurerm_network_security_rule" "rule3" {
+resource "azurerm_network_security_rule" "port_135" {
   name                        = "AllowLMCollectorAllSubnet"
   description                 = "Allow LM Collector"
   access                      = "Allow"
   protocol                    = "*"
   direction                   = "Inbound"
   priority                    = 101
-  source_address_prefixes     = ["10.7.1.31", "10.7.1.32"]
+  source_address_prefix       = "*"
   source_port_range           = "*"
   destination_address_prefix  = "*"
   destination_port_range      = "135"
@@ -126,13 +126,16 @@ resource "azurerm_network_security_rule" "allow_ssh" {
   protocol                    = "*"
   direction                   = "Inbound"
   priority                    = 102
-  source_address_prefixes     = ["10.7.1.31", "10.7.1.32"]
+  source_address_prefix       = "*"
   source_port_range           = "*"
   destination_address_prefix  = "*"
   destination_port_range      = "22"
   resource_group_name         = "${azurerm_resource_group.test.name}"
   network_security_group_name = "${azurerm_network_security_group.test.name}"
 }
+
+# source_address_prefixes     = ["10.7.1.31", "10.7.1.32"]
+
 # resource "azurerm_recovery_services_vault" "test" {
 #   name                = "C-RSV-${var.postfix}"
 #   resource_group_name = "${azurerm_resource_group.test.name}"
