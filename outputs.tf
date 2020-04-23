@@ -21,3 +21,7 @@ output "postfix" {
 output "azure_vm_ssh-rsa" {
   value = "${var.hcadmin_rsa}"
 }
+
+output "azure_virtual_network_name" {
+  value = "${var.azurerm_virtual_network.test.name}"
+}
