@@ -1,6 +1,6 @@
 variable "postfix" {
   description = "Common name postfix for the environment"
-  default     = "INTERRUPT"
+  default     = "interrupt"
 }
 
 variable "location" {
@@ -28,7 +28,7 @@ variable "tags" {
 
   default = {
     Subscription = "Customer in Azure"
-    Environment  = "Dev\\Test"
+    Environment  = "HCS Testing"
     Owner        = "Gilberto Castillo"
     Purpose      = "POC Test"
     Email        = "gilberto@hashicorp.com"
